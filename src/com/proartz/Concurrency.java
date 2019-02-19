@@ -12,7 +12,12 @@ public class Concurrency {
         };
 
         for(int i = 0; i < words.length; i++ ) {
-            Thread.sleep(4000);
+            try {
+                Thread.sleep(4000);
+            }catch(InterruptedException e) {
+                return;
+            }
+
             System.out.println(words[i]);
         }
     }
