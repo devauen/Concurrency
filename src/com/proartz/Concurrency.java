@@ -14,7 +14,7 @@ public class Concurrency {
         for(int i = 0; i < words.length; i++ ) {
             something(words[i]);
             if(Thread.interrupted()) {
-                return;
+                throw new InterruptedException();
             }
         }
     }
