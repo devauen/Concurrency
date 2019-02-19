@@ -12,13 +12,15 @@ public class Concurrency {
         };
 
         for(int i = 0; i < words.length; i++ ) {
-            try {
-                Thread.sleep(4000);
-            }catch(InterruptedException e) {
+            something(words[i]);
+            if(Thread.interrupted()) {
                 return;
             }
-
-            System.out.println(words[i]);
         }
+    }
+
+    public static void something(String word) throws InterruptedException{
+        Thread.sleep(4000);
+        System.out.println(word);
     }
 }
