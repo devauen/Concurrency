@@ -1,12 +1,19 @@
 package com.proartz;
 
-public class Concurrency extends Thread {
+public class Concurrency {
 
-    public void run() {
-        System.out.println("Hello from the thread!");
-    }
+    public static void main(String[] args) throws InterruptedException {
 
-    public static void main(String[] args) {
-        (new Concurrency()).start();
+        String[] words = {
+                "Test me i'm a thread",
+                "I'm going to sleep",
+                "In my sweet thread bad",
+                "Let it be, let."
+        };
+
+        for(int i = 0; i < words.length; i++ ) {
+            Thread.sleep(4000);
+            System.out.println(words[i]);
+        }
     }
 }
